@@ -1,4 +1,7 @@
+'use client'
+
 import React, { useState } from 'react';
+import "../app/globals.css";
 
 const SearchResults = () => {
   const [viewMode, setViewMode] = useState('gallery');
@@ -151,6 +154,7 @@ const SearchResults = () => {
             ].map(item => (
               <div key={item.id} className="border border-gray-300">
                 <a href={`/item/${item.id}`} className="block">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img 
                     src={item.image}
                     alt={item.title}

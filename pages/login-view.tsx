@@ -1,4 +1,7 @@
+'use client'
+
 import React, { useState } from 'react';
+import "../app/globals.css";
 
 const LoginPage = () => {
   const [isLogin, setIsLogin] = useState(true);

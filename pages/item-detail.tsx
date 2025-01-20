@@ -1,5 +1,8 @@
+'use client'
+
 import React, { useState } from 'react';
 import { Calendar, Share2, Flag } from 'lucide-react';
+import "../app/globals.css";
 
 const ItemDetail = () => {
   const [showContactInfo, setShowContactInfo] = useState(false);

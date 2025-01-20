@@ -1,14 +1,17 @@
+'use client'
+
 import React, { useState } from 'react';
 import { Mail } from 'lucide-react';
-import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
+import "../app/globals.css";
+// import { LineChart, Line, XAxis, YAxis, Tooltip } from 'recharts';
 
 const AccountPage = () => {
   const [activeTab, setActiveTab] = useState('myitems');
-  const [showBorrowForm, setShowBorrowForm] = useState(null);
+  const [showBorrowForm, setShowBorrowForm] = useState<number | null>(null);
   const [statusFilter, setStatusFilter] = useState('all');
   
   // Sample data for items I'm borrowing
-  const [borrowedItems, setBorrowedItems] = useState([
+  const [borrowedItems] = useState([
     { 
       id: 1, 
       item: "KitchenAid Stand Mixer",
@@ -61,7 +64,7 @@ const AccountPage = () => {
   });
 
   // Rest of the component logic...
-  const handleReturn = (itemId) => {
+  const handleReturn = (itemId: number) => {
     setMyItems(myItems.map(item => {
       if (item.id === itemId) {
         return {
@@ -76,7 +79,7 @@ const AccountPage = () => {
     }));
   };
 
-  const handleMarkBorrowed = (itemId, borrowerName, borrowerEmail, dates) => {
+  const handleMarkBorrowed = (itemId: number, borrowerName: string, borrowerEmail: string, dates: string) => {
     setMyItems(myItems.map(item => {
       if (item.id === itemId) {
         return {
@@ -223,9 +226,9 @@ const AccountPage = () => {
                 e.preventDefault();
                 handleMarkBorrowed(
                   showBorrowForm,
-                  e.target.borrower.value,
-                  e.target.email.value,
-                  `${e.target.startDate.value} - ${e.target.endDate.value}`
+                  (e.target as HTMLFormElement).borrower.value,
+                  (e.target as HTMLFormElement).email.value,
+                  `${(e.target as HTMLFormElement).startDate.value} - ${(e.target as HTMLFormElement).endDate.value}`
                 );
               }}>
                 <div className="space-y-3">
@@ -342,6 +345,7 @@ const AccountPage = () => {
               }
             ].map(item => (
               <div key={item.id} className="border border-gray-300 p-3">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img 
                   src={item.img} 
                   alt={item.name}

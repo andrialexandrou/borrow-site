@@ -1,10 +1,10 @@
-import AccountPage from './account-page';
-import ExplorePage from './explore-page';
-import ItemDetail from './item-detail';
-import LoginView from './login-view';
-import NewItemForm from './new-item-form';
-import SearchResults from './search-results';
-import UserProfile from './user-profile';
+import AccountPage from './pages/account-page';
+import ExplorePage from './pages/explore-page';
+import ItemDetail from './pages/item-detail';
+import LoginView from './pages/login-view';
+import NewItemForm from './pages/new-item-form';
+import SearchResults from './pages/search-results';
+import UserProfile from './pages/user-profile';
 
 export default function Home() {
   return (

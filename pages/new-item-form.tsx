@@ -1,5 +1,8 @@
+'use client'
+
 import React, { useState } from 'react';
 import { Upload } from 'lucide-react';
+import "../app/globals.css";
 
 const NewItemForm = () => {
   const [images, setImages] = useState([]);
